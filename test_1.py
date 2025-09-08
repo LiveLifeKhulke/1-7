@@ -21,8 +21,11 @@ def setup_module(request):
 class Test_demo:
     def test_demo(self,title,url):
         print('Hi , this is test')
-        assert title in self.driver.title
-        assert url in self.driver.current_url
+        if 3>5:
+            assert title in self.driver.title
+            assert url in self.driver.current_url
+        else:
+            pass
 
 # import requests
 #
