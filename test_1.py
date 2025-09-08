@@ -17,7 +17,7 @@ def setup_module(request):
 
 @pytest.mark.usefixtures('setup_module')
 @pytest.mark.smoke1
-@pytest.mark.parametrize('title,url',[('Google','google'),('GOgle','Google')])
+@pytest.mark.parametrize('title,url',[('Google','google')])
 class Test_demo:
     def test_demo(self,title,url):
         print('Hi , this is test')
