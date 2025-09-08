@@ -14,3 +14,5 @@ def setup_module(request):
         request.cls.driver=driver
         driver.get("https://google.com")
         time.sleep(5)
+    yield
+    driver.quit()
