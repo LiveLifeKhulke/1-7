@@ -1,6 +1,10 @@
 import pytest
 
-def test_add():
-    a=2
-    b=3
-    assert a+b == 5
+@pytest.mark.usefixtures('setup_module')
+@pytest.mark.smoke1
+@pytest.mark.parametrize('title,url',[('Google','google'),('GOgle','Google')])
+class Test_demo:
+    def test_demo(self,title,url):
+        print('Hi , this is test')
+        assert title in self.driver.title
+        assert url in self.driver.current_url

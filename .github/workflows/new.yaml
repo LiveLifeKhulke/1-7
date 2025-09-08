@@ -20,7 +20,7 @@ jobs:
          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
          pip install pytest pytest-cov
      - name: Run tests
-       run: pytest --maxfail=1 --disable-warnings --cov=. --junitxml=pytest-results.xml
+       run: pytest -v -s -n 2 -m smoke1 --maxfail=1 --disable-warnings --cov=. --junitxml=pytest-results.xml
      - name: Upload test results
        if: always()
        uses: actions/upload-artifact@v4
