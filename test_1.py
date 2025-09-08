@@ -1,28 +1,16 @@
 import pytest
 
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 import time
-
 
 @pytest.fixture(params=['chrome'],scope='class')
 def setup_module(request):
     print('This is setup')
     if request.param == 'chrome':
     # global driver
-    #     c_options = webdriver.ChromeOptions()
-    #     c_options.add_argument("--start-maximized")
-    # Set Chrome options
-        options = Options()
-        options.add_argument("--start-maximized")  # open browser in maximized mode
-        options.add_argument("--disable-infobars")  # disable info bar
-        options.add_argument("--disable-extensions")  # disable extensions
-        # Provide path to your chromedriver
-        service = Service()
-        # Launch Chrome
-        driver = webdriver.Chrome(service=service, options=options)
-        # driver = webdriver.Chrome(executable_path="C:/Chrome/")
+        c_options = webdriver.ChromeOptions()
+        c_options.add_argument("--headless")
+        driver = webdriver.Chrome(options=c_options)
         request.cls.driver=driver
         driver.get("https://google.com")
         time.sleep(5)
