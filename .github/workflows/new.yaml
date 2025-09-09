@@ -1,7 +1,7 @@
 name: Pytest Automation
 on:
  push:
-   branches: [ "feature" ]
+   branches: [ "master" ]
  pull_request:
    branches: [ "master" ]
  schedule:
