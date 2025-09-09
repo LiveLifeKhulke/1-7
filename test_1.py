@@ -8,4 +8,3 @@ class Test_demo:
         print('Hi , this is test')
         assert title in self.driver.title
         assert url in self.driver.current_url
-        
