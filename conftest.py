@@ -6,7 +6,9 @@ import time
 @pytest.fixture(params=['chrome'],scope='class')
 def setup_teardown(request):
     if request.param == 'chrome':
-        driver = webdriver.Chrome()
+        c_options = webdriver.ChromeOptions()
+        c_options.add_arguments('--headless')
+        driver = webdriver.Chrome(options=c_options)
         request.cls.driver=driver
         driver.get("https://google.com")
         yield
