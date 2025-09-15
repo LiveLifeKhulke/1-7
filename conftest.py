@@ -7,7 +7,7 @@ import time
 def setup_teardown(request):
     if request.param == 'chrome':
         c_options = webdriver.ChromeOptions()
-        c_options.add_arguments('headless')
+        c_options.add_argument("headless")
         driver = webdriver.Chrome(options=c_options)
         request.cls.driver=driver
         driver.get("https://google.com")
